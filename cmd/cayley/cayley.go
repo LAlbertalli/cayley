@@ -22,6 +22,7 @@ import (
 	"os"
 	"runtime"
 	"time"
+	"strings"
 
 	"github.com/barakmich/glog"
 
@@ -55,6 +56,8 @@ var (
 	port               = flag.String("port", "64210", "Port to listen on.")
 	readOnly           = flag.Bool("read_only", false, "Disable writing via HTTP.")
 	timeout            = flag.Duration("timeout", 30*time.Second, "Elapsed time until an individual query times out.")
+	collationType      = flag.String("collation_type", "", "Specify the collation to use")
+	collationOptions   = flag.String("collation_options", "", "Comma separated list of collation options")
 )
 
 // Filled in by `go build ldflags="-X main.Version `ver`"`.
@@ -131,6 +134,14 @@ func configFrom(file string) *config.Config {
 	}
 
 	cfg.ReadOnly = cfg.ReadOnly || *readOnly
+
+	if cfg.CollationType == "" {
+		cfg.CollationType = *collationType
+	}
+
+	if len(cfg.CollationOptions) == 0 && *collationOptions != "" {
+		cfg.CollationOptions = strings.Split(*collationOptions,",")
+	}
 
 	return cfg
 }

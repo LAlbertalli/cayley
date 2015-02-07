@@ -35,6 +35,8 @@ type Config struct {
 	Timeout                    time.Duration
 	LoadSize                   int
 	RequiresHTTPRequestContext bool
+	CollationType              string
+	CollationOptions           []string
 }
 
 type config struct {
@@ -49,6 +51,8 @@ type config struct {
 	Timeout                    duration               `json:"timeout"`
 	LoadSize                   int                    `json:"load_size"`
 	RequiresHTTPRequestContext bool                   `json:"http_request_context"`
+	CollationType              string                 `json:"collation_type"`
+	CollationOptions           []string               `json:"collation_options"`
 }
 
 func (c *Config) UnmarshalJSON(data []byte) error {
@@ -69,6 +73,8 @@ func (c *Config) UnmarshalJSON(data []byte) error {
 		Timeout:                    time.Duration(t.Timeout),
 		LoadSize:                   t.LoadSize,
 		RequiresHTTPRequestContext: t.RequiresHTTPRequestContext,
+		CollationType:              t.CollationType,
+		CollationOptions:           t.CollationOptions,
 	}
 	return nil
 }
@@ -85,6 +91,8 @@ func (c *Config) MarshalJSON() ([]byte, error) {
 		ReadOnly:           c.ReadOnly,
 		Timeout:            duration(c.Timeout),
 		LoadSize:           c.LoadSize,
+		CollationType:      c.CollationType,
+		CollationOptions:   c.CollationOptions,
 	})
 }
 
