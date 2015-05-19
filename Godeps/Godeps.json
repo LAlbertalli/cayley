@@ -1,9 +1,6 @@
 {
 	"ImportPath": "github.com/google/cayley",
 	"GoVersion": "go1.4.2",
-	"Packages": [
-		"./..."
-	],
 	"Deps": [
 		{
 			"ImportPath": "code.google.com/p/go-uuid/uuid",
@@ -47,6 +44,22 @@
 		{
 			"ImportPath": "github.com/shurcooL/sanitized_anchor_name",
 			"Rev": "8e87604bec3c645a4eeaee97dfec9f25811ff20d"
+		},
+		{
+			"ImportPath": "golang.org/x/text/collate",
+			"Rev": "bfad311ce93436dc888b40d76c78f99dc3104473"
+		},
+		{
+			"ImportPath": "golang.org/x/text/language",
+			"Rev": "bfad311ce93436dc888b40d76c78f99dc3104473"
+		},
+		{
+			"ImportPath": "golang.org/x/text/transform",
+			"Rev": "bfad311ce93436dc888b40d76c78f99dc3104473"
+		},
+		{
+			"ImportPath": "golang.org/x/text/unicode/norm",
+			"Rev": "bfad311ce93436dc888b40d76c78f99dc3104473"
 		},
 		{
 			"ImportPath": "github.com/syndtr/goleveldb/leveldb",
