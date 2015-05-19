@@ -24,6 +24,7 @@ import (
 
 // Config defines the behavior of cayley database instances.
 type Config struct {
+<<<<<<< HEAD
 	DatabaseType               string
 	DatabasePath               string
 	DatabaseOptions            map[string]interface{}
